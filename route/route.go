@@ -238,6 +238,13 @@ func URL(w http.ResponseWriter, r *http.Request) {
 	case method == "POST" && path == "/auth/resend":
 		controller.ResendPasswordHandler(w, r)
 
+	//Register
+	case method == "POST" && path == "/tf/register":
+		controller.RegisterHandler(w, r)
+	//Login
+	case method == "POST" && path == "/tf/login":
+		controller.GetUser(w, r)
+
 	// Google Auth
 	default:
 		controller.NotFound(w, r)
